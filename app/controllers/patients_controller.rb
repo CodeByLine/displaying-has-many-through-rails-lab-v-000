@@ -1,5 +1,4 @@
 class PatientsController < ApplicationController
-
   def index
     @patients = Patient.all
   end
@@ -31,5 +30,4 @@ class PatientsController < ApplicationController
   def patient_params
     params.require(:patient).permit(:name)
   end
-
 end

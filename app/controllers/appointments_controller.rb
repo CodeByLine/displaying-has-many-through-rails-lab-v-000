@@ -1,6 +1,4 @@
 class AppointmentsController < ApplicationController
-
-
   def index
     @appointments = Appointment.all
   end
@@ -24,12 +22,12 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointment = Appointment.find_by(appointment_params)
+    @appointment = Appointment.find(params[:id])
   end
 
   private
 
   def appointment_params
-    params.require(:appointment).permit(:appointment_datetime)
+    params.require(:appointment).permit(:appointment_datetime, :doctor_name)
   end
 end

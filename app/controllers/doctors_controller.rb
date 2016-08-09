@@ -1,5 +1,4 @@
 class DoctorsController < ApplicationController
-
   def index
     @doctors = Doctor.all
   end
@@ -14,22 +13,22 @@ class DoctorsController < ApplicationController
   end
 
   def edit
-    @doctor = Doctor.find_by(:id)
+    @doctor = Doctor.find_by(params[:id])
   end
 
   def update
-      @doctor = Doctor.find_by(:id)
+      @doctor = Doctor.find_by(params[:id])
       @doctor.update
   end
 
   def show
-    @doctor = Doctor.find_by(doctor_params)
+    @doctor = Doctor.find_by(params[:id])
+
   end
 
   private
 
   def doctor_params
-    params.require(:doctor).permit(:name)
+    params.require(:doctor).permit(:name, :department, :id)
   end
-
 end
